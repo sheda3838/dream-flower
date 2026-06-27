@@ -81,25 +81,25 @@ const About = () => {
         >
           {/* Left Column: Typographic Statement */}
           <div className="flex-1 flex flex-col justify-center w-full lg:max-w-xl">
-            <motion.div variants={fadeUp} className="mb-6 lg:mb-8">
+            <motion.div variants={fadeUp} className="mb-4 lg:mb-6">
               <span className="font-body text-xs md:text-sm tracking-[0.3em] uppercase text-primary font-medium">About Us</span>
             </motion.div>
             
             <motion.h2 
               variants={fadeUp} 
-              className="font-heading text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-dark leading-[1.1] mb-8 lg:mb-16"
+              className="font-heading text-4xl sm:text-5xl lg:text-5xl xl:text-6xl text-dark leading-[1.1] mb-5 lg:mb-8"
             >
               Crafting timeless floral experiences for life’s most beautiful moments.
             </motion.h2>
 
-            <motion.div variants={fadeUp} className="hidden lg:block mt-12 mb-8">
-              <p className="font-heading italic text-xl md:text-2xl text-dark/60 border-l border-accent pl-6">
+            <motion.div variants={fadeUp} className="hidden lg:block mt-4 mb-5">
+              <p className="font-heading italic text-lg md:text-xl text-dark/60 border-l border-accent pl-5">
                 “Designed with intention.<br/>Crafted with emotion.”
               </p>
             </motion.div>
 
             {/* CTAs */}
-            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-start gap-4 mt-6 lg:mt-auto">
+            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-start gap-4 mt-3 lg:mt-auto">
               <a href="#services" className="btn-primary w-full sm:w-auto text-center">
                 Learn More
               </a>
@@ -113,44 +113,44 @@ const About = () => {
           <div className="flex-1 w-full max-w-lg mx-auto lg:mx-0 flex flex-col justify-center">
             <motion.p 
               variants={fadeUp}
-              className="font-body text-dark/70 text-base md:text-lg leading-relaxed font-light mb-8 lg:mb-12"
+              className="font-body text-dark/70 text-sm md:text-base leading-relaxed font-light mb-6"
             >
               The Dream Flower transforms weddings and celebrations into elegant visual stories through refined floral artistry and thoughtful design.
             </motion.p>
 
             {/* Stat Cards - Morphing / Staggered Layout Feel */}
-            <div className="relative h-[240px] sm:h-[280px] lg:h-[320px] w-full">
+            <div className="relative h-[220px] sm:h-[260px] lg:h-[280px] w-full">
               {/* Card 1 */}
               <motion.div 
                 variants={floatVariant}
                 whileHover="hover"
-                className="absolute top-0 left-0 w-[48%] sm:w-56 bg-white/40 backdrop-blur-xl border border-white/60 p-5 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] group z-20 cursor-default"
+                className="absolute top-0 left-0 w-[48%] sm:w-48 bg-white/40 backdrop-blur-xl border border-white/60 p-4 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] group z-20 cursor-default"
               >
                 <div className="absolute inset-0 rounded-2xl bg-white/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <h3 className="font-heading text-3xl sm:text-4xl text-primary mb-1 relative z-10">10+</h3>
-                <p className="font-body text-[10px] sm:text-xs tracking-widest uppercase text-dark/70 relative z-10">Years Experience</p>
+                <h3 className="font-heading text-2xl sm:text-3xl text-primary mb-1 relative z-10">10+</h3>
+                <p className="font-body text-[10px] sm:text-[11px] tracking-widest uppercase text-dark/70 relative z-10">Years Experience</p>
               </motion.div>
 
               {/* Card 2 */}
               <motion.div 
                 variants={floatVariant}
                 whileHover="hover"
-                className="absolute top-16 sm:top-20 right-0 w-[45%] sm:w-52 bg-white/30 backdrop-blur-lg border border-white/50 p-5 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] group z-10 cursor-default"
+                className="absolute top-14 sm:top-16 right-0 w-[45%] sm:w-44 bg-white/30 backdrop-blur-lg border border-white/50 p-4 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] group z-10 cursor-default"
               >
                 <div className="absolute inset-0 rounded-2xl bg-white/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <h3 className="font-heading text-3xl sm:text-4xl text-primary mb-1 relative z-10">100+</h3>
-                <p className="font-body text-[10px] sm:text-xs tracking-widest uppercase text-dark/70 relative z-10">Events Styled</p>
+                <h3 className="font-heading text-2xl sm:text-3xl text-primary mb-1 relative z-10">100+</h3>
+                <p className="font-body text-[10px] sm:text-[11px] tracking-widest uppercase text-dark/70 relative z-10">Events Styled</p>
               </motion.div>
 
               {/* Card 3 */}
               <motion.div 
                 variants={floatVariant}
                 whileHover="hover"
-                className="absolute top-36 sm:top-48 left-8 sm:left-12 w-[55%] sm:w-64 bg-primary/5 backdrop-blur-xl border border-primary/10 p-5 rounded-2xl shadow-[0_10px_40px_rgba(54,92,73,0.08)] group z-30 cursor-default"
+                className="absolute top-32 sm:top-40 left-6 sm:left-10 w-[55%] sm:w-56 bg-primary/5 backdrop-blur-xl border border-primary/10 p-4 rounded-2xl shadow-[0_10px_40px_rgba(54,92,73,0.08)] group z-30 cursor-default"
               >
                 <div className="absolute inset-0 rounded-2xl bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <h3 className="font-heading text-2xl sm:text-3xl text-primary mb-1 relative z-10">Premium</h3>
-                <p className="font-body text-[10px] sm:text-xs tracking-widest uppercase text-dark/70 relative z-10">Wedding Designs</p>
+                <h3 className="font-heading text-xl sm:text-2xl text-primary mb-1 relative z-10">Premium</h3>
+                <p className="font-body text-[10px] sm:text-[11px] tracking-widest uppercase text-dark/70 relative z-10">Wedding Designs</p>
               </motion.div>
             </div>
 

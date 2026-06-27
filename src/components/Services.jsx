@@ -43,7 +43,7 @@ const services = [
 
 const Services = () => {
   return (
-    <section id="services" className="relative w-full h-[100dvh] bg-cream overflow-hidden flex flex-col pt-12 pb-4 md:pt-20 md:pb-6">
+    <section id="services" className="relative w-full min-h-[100dvh] lg:h-[100dvh] bg-cream overflow-visible lg:overflow-hidden flex flex-col pt-12 pb-4 md:pt-20 md:pb-6">
       {/* Background Soft Glow */}
       <div className="absolute top-1/4 left-0 w-[40vw] h-[40vw] bg-accent/5 rounded-full blur-[100px] pointer-events-none -translate-x-1/3"></div>
       <div className="absolute bottom-1/4 right-0 w-[50vw] h-[50vw] bg-primary/5 rounded-full blur-[120px] pointer-events-none translate-x-1/4"></div>
@@ -73,27 +73,13 @@ const Services = () => {
         </motion.h2>
       </div>
 
-      {/* Grid Container - Flex-1 ensures it fills remaining space exactly */}
-      <div className="relative z-10 w-full max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 flex-1 min-h-0">
+      {/* Grid Container */}
+      <div className="relative z-10 w-full max-w-[1600px] mx-auto px-6 md:px-12 flex-1 pb-12">
         
-        {/* Desktop Grid (3 columns x 2 rows) */}
-        <div className="hidden lg:grid grid-cols-3 grid-rows-2 gap-4 xl:gap-6 h-full">
+        {/* Responsive Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-4 xl:gap-6 h-full auto-rows-[350px] sm:auto-rows-fr">
           {services.map((service, index) => (
-            <ServiceCard key={service.id} service={service} index={index} />
-          ))}
-        </div>
-
-        {/* Tablet Grid (2 columns x 3 rows) */}
-        <div className="hidden sm:grid lg:hidden grid-cols-2 grid-rows-3 gap-4 h-full">
-          {services.map((service, index) => (
-            <ServiceCard key={service.id} service={service} index={index} />
-          ))}
-        </div>
-
-        {/* Mobile Horizontal Scroll */}
-        <div className="sm:hidden flex gap-4 h-full overflow-x-auto snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] -mx-4 px-4">
-          {services.map((service, index) => (
-            <div key={service.id} className="snap-center snap-always w-[85vw] h-full flex-shrink-0">
+            <div key={service.id} className="w-full h-full">
               <ServiceCard service={service} index={index} />
             </div>
           ))}

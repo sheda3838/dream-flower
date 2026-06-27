@@ -69,8 +69,8 @@ const BookingForm = () => {
     setErrors({});
   };
 
-  const inputClasses = "w-full bg-white/60 border rounded-xl px-4 py-3.5 font-body text-sm text-dark placeholder:text-dark/40 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:bg-white transition-all duration-300";
-  const labelClasses = "block font-body text-xs tracking-widest uppercase text-dark/70 font-medium mb-2";
+  const inputClasses = "w-full bg-white/60 border rounded-xl px-3 py-2.5 font-body text-sm text-dark placeholder:text-dark/40 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:bg-white transition-all duration-300";
+  const labelClasses = "block font-body text-[10px] sm:text-xs tracking-widest uppercase text-dark/70 font-medium mb-1.5";
   
   // Custom reusable input to keep JSX clean
   const FormField = ({ label, id, error, children }) => (
@@ -83,9 +83,9 @@ const BookingForm = () => {
             initial={{ opacity: 0, y: -5 }} 
             animate={{ opacity: 1, y: 0 }} 
             exit={{ opacity: 0, y: -5 }}
-            className="flex items-center gap-1 mt-1.5 text-[#D44C4C] text-xs font-body"
+            className="flex items-center gap-1 mt-1 text-[#D44C4C] text-[10px] sm:text-xs font-body"
           >
-            <AlertCircle className="w-3.5 h-3.5" />
+            <AlertCircle className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
             <span>{error}</span>
           </motion.div>
         )}
@@ -99,7 +99,7 @@ const BookingForm = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-      className="bg-white/50 backdrop-blur-2xl border border-white p-8 md:p-10 lg:p-12 rounded-[2rem] shadow-[0_20px_50px_rgba(54,92,73,0.08)] w-full relative overflow-hidden"
+      className="bg-white/50 backdrop-blur-2xl border border-white p-6 lg:p-8 rounded-[1.5rem] shadow-[0_20px_50px_rgba(54,92,73,0.08)] w-full relative overflow-hidden"
     >
       <AnimatePresence mode="wait">
         {!isSuccess ? (
@@ -110,10 +110,10 @@ const BookingForm = () => {
             exit={{ opacity: 0, scale: 0.98 }}
             transition={{ duration: 0.4 }}
             onSubmit={handleSubmit} 
-            className="flex flex-col gap-6"
+            className="flex flex-col gap-4 lg:gap-5"
           >
             {/* Row 1: Name and Email */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <FormField label="Full Name" id="name" error={errors.name}>
                 <input 
                   type="text" 
@@ -140,7 +140,7 @@ const BookingForm = () => {
             </div>
 
             {/* Row 2: Phone and Event Type */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <FormField label="Phone Number" id="phone" error={errors.phone}>
                 <input 
                   type="tel" 
@@ -171,8 +171,8 @@ const BookingForm = () => {
                     <option value="Custom Decorations">Custom Decorations</option>
                     <option value="Other">Other</option>
                   </select>
-                  <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none">
-                    <svg className="w-4 h-4 text-dark/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                  <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
+                    <svg className="w-3.5 h-3.5 text-dark/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
                   </div>
                 </div>
               </FormField>
@@ -186,7 +186,7 @@ const BookingForm = () => {
                 name="eventDate" 
                 value={formData.eventDate}
                 onChange={handleChange}
-                className={`${inputClasses} border-white cursor-text min-h-[50px]`} 
+                className={`${inputClasses} border-white cursor-text min-h-[44px]`} 
               />
             </FormField>
 
@@ -197,7 +197,7 @@ const BookingForm = () => {
                 name="message" 
                 value={formData.message}
                 onChange={handleChange}
-                rows="3"
+                rows="2"
                 className={`${inputClasses} border-white resize-none`} 
                 placeholder="Tell us about your dream event..." 
               />
@@ -207,7 +207,7 @@ const BookingForm = () => {
             <motion.button
               disabled={isSubmitting}
               type="submit"
-              className="btn-primary w-full mt-4 min-h-[56px] disabled:opacity-70 disabled:cursor-not-allowed"
+              className="btn-primary w-full mt-2 min-h-[48px] disabled:opacity-70 disabled:cursor-not-allowed"
             >
               {isSubmitting ? (
                 <div className="w-5 h-5 border-2 border-cream/30 border-t-cream rounded-full animate-spin"></div>

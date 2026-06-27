@@ -85,13 +85,13 @@ const Gallery = () => {
       </style>
 
       {/* Main Gallery Header */}
-      <div className="text-center max-w-2xl mx-auto mb-4 md:mb-6 shrink-0 relative z-20 px-4">
+      <div className="text-center max-w-2xl mx-auto mb-0 md:mb-2 shrink-0 relative z-20 px-4">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6 }}
-          className="flex items-center justify-center gap-4 mb-4"
+          className="flex items-center justify-center gap-4 mb-3"
         >
           <div className="h-[1px] w-8 md:w-12 bg-accent"></div>
           <span className="font-body text-xs md:text-sm tracking-[0.2em] uppercase text-accent font-medium">Our Gallery</span>
@@ -103,7 +103,7 @@ const Gallery = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="font-heading text-4xl md:text-5xl text-dark mb-4 leading-tight"
+          className="font-heading text-4xl md:text-5xl text-dark mb-3 leading-tight"
         >
           Moments We Bring to Life
         </motion.h2>
@@ -120,27 +120,11 @@ const Gallery = () => {
       </div>
 
       {/* The curved infinite track */}
-      <div className="w-full relative py-10 flex items-center">
+      <div className="w-full relative pt-10 pb-8 flex items-center">
         <div className="relative z-10 w-full">
           <GalleryTrack images={galleryImages} />
         </div>
       </div>
-
-      {/* CTAs */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-50px" }}
-        transition={{ duration: 0.8, delay: 0.3 }}
-        className="flex flex-col sm:flex-row items-center gap-4 mt-8 relative z-20"
-      >
-        <a href="#" className="btn-secondary w-full sm:w-auto text-center">
-          View More
-        </a>
-        <a href="#booking" className="btn-primary w-full sm:w-auto text-center">
-          Book Your Event
-        </a>
-      </motion.div>
 
     </section>
   );

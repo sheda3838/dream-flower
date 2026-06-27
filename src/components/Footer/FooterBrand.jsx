@@ -1,10 +1,15 @@
 import { motion } from 'framer-motion';
+import logo from '../../assets/images/logo.png';
 
 const FooterBrand = () => {
   return (
     <div className="flex flex-col col-span-1 md:col-span-2 lg:col-span-1">
-      <a href="#" className="font-heading text-3xl font-bold tracking-wider text-cream mb-4 inline-block">
-        The Dream Flower
+      <a href="#" className="mb-6 inline-block transition-transform duration-300 hover:scale-105 active:scale-95 origin-left">
+        <img 
+          src={logo} 
+          alt="The Dream Flower Logo" 
+          className="h-12 w-auto object-contain brightness-0 invert opacity-90"
+        />
       </a>
       
       <p className="font-heading text-lg text-accent italic mb-4 leading-snug">
@@ -20,7 +25,9 @@ const FooterBrand = () => {
         <motion.a 
           whileHover={{ scale: 1.1, y: -2 }}
           whileTap={{ scale: 0.95 }}
-          href="#" 
+          href="https://www.instagram.com/thedream_flower/" 
+          target="_blank"
+          rel="noopener noreferrer"
           className="w-10 h-10 rounded-full border border-cream/20 flex items-center justify-center text-cream/80 hover:bg-cream hover:text-dark hover:border-cream transition-colors duration-300"
           aria-label="Instagram"
         >
@@ -29,7 +36,9 @@ const FooterBrand = () => {
         <motion.a 
           whileHover={{ scale: 1.1, y: -2 }}
           whileTap={{ scale: 0.95 }}
-          href="#" 
+          href="https://www.facebook.com/confirmemail.php?next=https%3A%2F%2Fwww.facebook.com%2Fthedreamflower2016%2F#" 
+          target="_blank"
+          rel="noopener noreferrer"
           className="w-10 h-10 rounded-full border border-cream/20 flex items-center justify-center text-cream/80 hover:bg-cream hover:text-dark hover:border-cream transition-colors duration-300"
           aria-label="Facebook"
         >
@@ -38,11 +47,15 @@ const FooterBrand = () => {
         <motion.a 
           whileHover={{ scale: 1.1, y: -2 }}
           whileTap={{ scale: 0.95 }}
-          href="#" 
+          href="https://www.tiktok.com/@the.dream.flower" 
+          target="_blank"
+          rel="noopener noreferrer"
           className="w-10 h-10 rounded-full border border-cream/20 flex items-center justify-center text-cream/80 hover:bg-cream hover:text-dark hover:border-cream transition-colors duration-300"
-          aria-label="WhatsApp"
+          aria-label="TikTok"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5v3a3 3 0 0 1-3-3"/>
+          </svg>
         </motion.a>
       </div>
     </div>

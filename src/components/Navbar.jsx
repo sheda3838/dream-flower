@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import logo from '../assets/images/logo.png';
 
 const navLinks = [
   { name: 'Home', href: '#' },
@@ -73,8 +74,15 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
         {/* Brand Logo */}
-        <a href="#" className={`font-heading text-2xl md:text-3xl font-bold tracking-widest ${scrolled ? 'text-primary' : 'text-cream'}`}>
-          The Dream Flower
+        <a href="#" className="flex items-center gap-2 transition-transform duration-300 hover:scale-105 active:scale-95">
+          <img 
+            src={logo} 
+            alt="The Dream Flower Logo" 
+            className="h-10 md:h-12 w-auto object-contain"
+            style={{ 
+              filter: scrolled ? 'none' : 'drop-shadow(0px 2px 4px rgba(0,0,0,0.3))' 
+            }}
+          />
         </a>
 
         {/* Desktop Navigation */}
@@ -107,7 +115,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Toggle */}
         <button
-          className={`md:hidden z-50 focus:outline-none ${
+          className={`lg:hidden relative z-50 focus:outline-none ${
             scrolled || isOpen ? 'text-primary' : 'text-cream'
           }`}
           onClick={toggleMenu}
