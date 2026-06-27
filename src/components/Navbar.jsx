@@ -1,0 +1,172 @@
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X } from 'lucide-react';
+
+const navLinks = [
+  { name: 'Home', href: '#' },
+  { name: 'About', href: '#' },
+  { name: 'Services', href: '#' },
+  { name: 'Gallery', href: '#' },
+  { name: 'Booking', href: '#' },
+];
+
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  // Handle scroll to add blur effect later, for now just tracking state
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const toggleMenu = () => setIsOpen(!isOpen);
+
+  // Animation variants
+  const menuVariants = {
+    closed: {
+      opacity: 0,
+      y: '-100%',
+      transition: {
+        duration: 0.5,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+    open: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+  };
+
+  const linkVariants = {
+    closed: { opacity: 0, y: 20 },
+    open: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: 0.1 + i * 0.1,
+        duration: 0.4,
+        ease: 'easeOut',
+      },
+    }),
+  };
+
+  return (
+    <motion.nav
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: 'easeOut' }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled ? 'bg-cream/80 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
+        {/* Brand Logo */}
+        <a href="#" className={`font-heading text-2xl font-bold tracking-wider ${scrolled ? 'text-primary' : 'text-cream'}`}>
+          The Dream Flower
+        </a>
+
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center space-x-8">
+          <ul className="flex space-x-8">
+            {navLinks.map((link, index) => (
+              <li key={index}>
+                <a
+                  href={link.href}
+                  className={`text-sm tracking-widest uppercase transition-colors hover:text-accent ${
+                    scrolled ? 'text-dark' : 'text-cream'
+                  }`}
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <a
+            href="#booking"
+            className={`px-6 py-2 border rounded-full text-sm tracking-wider uppercase transition-all ${
+              scrolled
+                ? 'border-primary text-primary hover:bg-primary hover:text-cream'
+                : 'border-cream text-cream hover:bg-cream hover:text-primary'
+            }`}
+          >
+            Book Now
+          </a>
+        </div>
+
+        {/* Mobile Menu Toggle */}
+        <button
+          className={`md:hidden z-50 focus:outline-none ${
+            scrolled || isOpen ? 'text-primary' : 'text-cream'
+          }`}
+          onClick={toggleMenu}
+        >
+          {isOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            variants={menuVariants}
+            initial="closed"
+            animate="open"
+            exit="closed"
+            className="fixed inset-0 bg-cream z-40 flex flex-col justify-center items-center h-screen"
+          >
+            <ul className="flex flex-col items-center space-y-8">
+              {navLinks.map((link, i) => (
+                <motion.li
+                  key={link.name}
+                  custom={i}
+                  variants={linkVariants}
+                  initial="closed"
+                  animate="open"
+                  exit="closed"
+                >
+                  <a
+                    href={link.href}
+                    onClick={toggleMenu}
+                    className="font-heading text-4xl text-primary hover:text-accent transition-colors"
+                  >
+                    {link.name}
+                  </a>
+                </motion.li>
+              ))}
+              <motion.li
+                custom={navLinks.length}
+                variants={linkVariants}
+                initial="closed"
+                animate="open"
+                exit="closed"
+                className="pt-4"
+              >
+                <a
+                  href="#booking"
+                  onClick={toggleMenu}
+                  className="px-8 py-3 bg-primary text-cream rounded-full text-lg tracking-wider uppercase hover:bg-dark transition-colors"
+                >
+                  Book Now
+                </a>
+              </motion.li>
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.nav>
+  );
+};
+
+export default Navbar;
