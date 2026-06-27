@@ -1,54 +1,55 @@
 import { motion } from 'framer-motion';
 import ServiceCard from './ServiceCard';
 
+import weddingImg from '../assets/images/wedding.jpg';
+import engagementImg from '../assets/images/engagement.jpg';
+import birthdayImg from '../assets/images/birthday.jpg';
+import floralImg from '../assets/images/floral.jpg';
+import eventImg from '../assets/images/event.jpg';
+import customImg from '../assets/images/custom.jpg';
+
 const services = [
   {
     id: 1,
     title: 'Wedding Decorations',
-    subtitle: 'Timeless & Elegant Celebrations',
-    image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop',
+    image: weddingImg,
   },
   {
     id: 2,
     title: 'Engagement Styling',
-    subtitle: 'Beautiful Beginnings Crafted',
-    image: 'https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=2070&auto=format&fit=crop',
+    image: engagementImg,
   },
   {
     id: 3,
     title: 'Birthday Celebrations',
-    subtitle: 'Vibrant & Memorable Moments',
-    image: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?q=80&w=2069&auto=format&fit=crop',
+    image: birthdayImg,
   },
   {
     id: 4,
     title: 'Floral Arrangements',
-    subtitle: 'Handcrafted Artistry in Blooms',
-    image: 'https://images.unsplash.com/photo-1563241598-6364026048d0?q=80&w=1969&auto=format&fit=crop',
+    image: floralImg,
   },
   {
     id: 5,
     title: 'Event Styling',
-    subtitle: 'Corporate & Private Sophistication',
-    image: 'https://images.unsplash.com/photo-1530103862676-de8892ebe9bd?q=80&w=2070&auto=format&fit=crop',
+    image: eventImg,
   },
   {
     id: 6,
     title: 'Custom Decorations',
-    subtitle: 'Unique Concepts Brought to Life',
-    image: 'https://images.unsplash.com/photo-1505944357431-27579db47558?q=80&w=2073&auto=format&fit=crop',
+    image: customImg,
   }
 ];
 
 const Services = () => {
   return (
-    <section id="services" className="relative w-full h-[100dvh] bg-cream overflow-hidden flex flex-col pt-20 pb-8 md:pt-28 md:pb-12">
+    <section id="services" className="relative w-full h-[100dvh] bg-cream overflow-hidden flex flex-col pt-12 pb-4 md:pt-20 md:pb-6">
       {/* Background Soft Glow */}
       <div className="absolute top-1/4 left-0 w-[40vw] h-[40vw] bg-accent/5 rounded-full blur-[100px] pointer-events-none -translate-x-1/3"></div>
       <div className="absolute bottom-1/4 right-0 w-[50vw] h-[50vw] bg-primary/5 rounded-full blur-[120px] pointer-events-none translate-x-1/4"></div>
 
       {/* Header */}
-      <div className="text-center px-6 md:px-12 relative z-20 mb-8 md:mb-12 shrink-0">
+      <div className="text-center px-6 md:px-12 relative z-20 mb-6 md:mb-8 shrink-0">
         <motion.div 
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -73,7 +74,7 @@ const Services = () => {
       </div>
 
       {/* Grid Container - Flex-1 ensures it fills remaining space exactly */}
-      <div className="relative z-10 w-full max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 flex-1 min-h-0 pb-4">
+      <div className="relative z-10 w-full max-w-[1600px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 flex-1 min-h-0">
         
         {/* Desktop Grid (3 columns x 2 rows) */}
         <div className="hidden lg:grid grid-cols-3 grid-rows-2 gap-4 xl:gap-6 h-full">

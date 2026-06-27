@@ -1,159 +1,213 @@
-import { motion } from 'framer-motion';
-import { Star } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const testimonials = [
   {
     id: 1,
-    name: 'Sarah & James',
-    event: 'Wedding Client',
-    text: 'A truly magical experience! The floral decorations exceeded our expectations and made our wedding unforgettable. Every detail was perfect.',
+    name: 'Sarah James',
+    text: 'A truly magical experience! Every detail was perfect.',
     image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop',
     rating: 5,
   },
   {
     id: 2,
-    name: 'Emily Rose',
-    event: 'Engagement Client',
-    text: 'The Dream Flower transformed our engagement into a beautifully elegant celebration. The setup was breathtaking.',
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200&auto=format&fit=crop',
-    rating: 5,
-  },
-  {
-    id: 3,
     name: 'Michael T.',
-    event: 'Birthday Client',
-    text: 'Absolutely stunning floral arrangements. The team was professional, creative, and understood our vision perfectly.',
+    text: 'Stunning floral arrangements. They understood our vision perfectly.',
     image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop',
     rating: 5,
   },
   {
+    id: 3,
+    name: 'Emily Rose',
+    text: 'Beautifully elegant celebration. Breathtaking setup.',
+    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200&auto=format&fit=crop',
+    rating: 5,
+  },
+  {
     id: 4,
-    name: 'Elena & Co.',
-    event: 'Corporate Client',
-    text: 'Their attention to detail is unmatched. Our event looked like something out of a luxury magazine.',
+    name: 'David K.',
+    text: 'Flawless execution. The team is incredibly talented.',
     image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop',
+    rating: 5,
+  },
+  {
+    id: 5,
+    name: 'Jessica W.',
+    text: 'Created a whimsical, romantic atmosphere. So beautiful.',
+    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop',
+    rating: 5,
+  },
+  {
+    id: 6,
+    name: 'James L.',
+    text: 'Professional and creative. The flowers were incredibly fresh.',
+    image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=200&auto=format&fit=crop',
+    rating: 5,
+  },
+  {
+    id: 7,
+    name: 'Olivia C.',
+    text: 'Absolutely blown away by the colors and unique designs.',
+    image: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=200&auto=format&fit=crop',
+    rating: 5,
+  },
+  {
+    id: 8,
+    name: 'Daniel M.',
+    text: 'The best florist in town. Made our event feel so premium.',
+    image: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=200&auto=format&fit=crop',
+    rating: 5,
+  },
+  {
+    id: 9,
+    name: 'Sophia R.',
+    text: 'Attention to detail is unmatched. Out of a luxury magazine.',
+    image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=200&auto=format&fit=crop',
+    rating: 5,
+  },
+  {
+    id: 10,
+    name: 'Chris P.',
+    text: 'Highly recommended! They brought so much joy to our celebration.',
+    image: 'https://images.unsplash.com/photo-1504257432389-52343af06ae3?q=80&w=200&auto=format&fit=crop',
     rating: 5,
   },
 ];
 
-const TestimonialCard = ({ testimonial }) => {
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] },
-    },
-  };
-
-  return (
-    <motion.div
-      variants={itemVariants}
-      className="group relative bg-white/60 backdrop-blur-md border border-white/80 p-8 md:p-10 rounded-3xl shadow-lg shadow-primary/5 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2 transition-all duration-500 overflow-hidden"
-    >
-      {/* Soft Border Highlight on Hover */}
-      <div className="absolute inset-0 border-2 border-transparent group-hover:border-accent/30 rounded-3xl transition-colors duration-500 pointer-events-none"></div>
-      
-      <div className="relative z-10 flex flex-col h-full">
-        {/* Rating */}
-        <div className="flex gap-1 mb-6">
-          {[...Array(testimonial.rating)].map((_, i) => (
-            <Star key={i} className="w-4 h-4 fill-[#D4AF37] text-[#D4AF37] opacity-80" />
-          ))}
-        </div>
-        
-        {/* Testimonial Text */}
-        <p className="font-body text-dark/80 text-base leading-relaxed font-light mb-8 flex-grow">
-          "{testimonial.text}"
-        </p>
-        
-        {/* Client Profile */}
-        <div className="flex items-center gap-4 mt-auto">
-          <div className="w-12 h-12 rounded-full overflow-hidden shrink-0 border border-cream/50 shadow-sm">
-            <img 
-              src={testimonial.image} 
-              alt={testimonial.name}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-          </div>
-          <div className="flex flex-col">
-            <span className="font-heading text-xl text-primary font-semibold leading-tight">
-              {testimonial.name}
-            </span>
-            <span className="font-body text-xs tracking-widest uppercase text-dark/50 mt-1">
-              {testimonial.event}
-            </span>
-          </div>
-        </div>
-      </div>
-    </motion.div>
-  );
-};
-
 const Testimonials = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.2 },
-    },
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [itemsVisible, setItemsVisible] = useState(4);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) setItemsVisible(1);
+      else if (window.innerWidth < 1024) setItemsVisible(2);
+      else setItemsVisible(4);
+    };
+    
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const totalSlides = Math.max(1, testimonials.length - itemsVisible + 1);
+
+  const nextTestimonial = () => {
+    setCurrentIndex((prev) => (prev + 1) % totalSlides);
+  };
+
+  const prevTestimonial = () => {
+    setCurrentIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
   };
 
   return (
-    <section id="testimonials" className="relative w-full min-h-screen flex items-center py-24 md:py-32 bg-cream overflow-hidden">
-      {/* Subtle Background Decorative Shapes */}
-      <div className="absolute top-1/4 -left-32 w-[600px] h-[600px] bg-accent/10 rounded-full mix-blend-multiply filter blur-[120px] opacity-60 z-0"></div>
-      <div className="absolute bottom-1/4 -right-32 w-[500px] h-[500px] bg-primary/5 rounded-full mix-blend-multiply filter blur-[100px] opacity-60 z-0"></div>
-
-      <div className="max-w-7xl mx-auto px-6 md:px-12 w-full relative z-10">
+    <section id="testimonials" className="relative w-full py-12 md:py-16 bg-cream overflow-hidden">
+      
+      <div className="max-w-[1800px] mx-auto px-4 sm:px-6 w-full relative z-10 flex flex-col items-center">
         
         {/* Header Section */}
-        <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24">
-          <motion.div 
+        <div className="text-center w-full mb-12 md:mb-16">
+          <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-            className="flex items-center justify-center gap-4 mb-6"
-          >
-            <div className="h-[1px] w-12 bg-accent"></div>
-            <span className="font-body text-sm tracking-[0.2em] uppercase text-accent font-medium">What Our Clients Say</span>
-            <div className="h-[1px] w-12 bg-accent"></div>
-          </motion.div>
-          
-          <motion.h2 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="font-heading text-4xl md:text-5xl lg:text-6xl text-dark mb-6 leading-tight"
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8 }}
+            className="font-heading text-4xl md:text-5xl text-dark"
           >
             Words From Our Happy Clients
           </motion.h2>
-          
-          <motion.p 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="font-body text-dark/70 text-base md:text-lg leading-relaxed font-light mx-auto"
-          >
-            A collection of heartfelt experiences from couples and clients who trusted The Dream Flower to bring their celebrations to life with elegance and care.
-          </motion.p>
         </div>
 
-        {/* Testimonials Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10"
-        >
-          {testimonials.map((testimonial) => (
-            <TestimonialCard key={testimonial.id} testimonial={testimonial} />
+        {/* Carousel Container */}
+        <div className="relative w-full flex items-center justify-center">
+          
+          {/* Left Button */}
+          <button 
+            onClick={prevTestimonial}
+            className="absolute left-2 md:left-4 z-20 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-white text-dark shadow-md hover:scale-110 hover:text-accent transition-all duration-300"
+          >
+            <ChevronLeft size={24} strokeWidth={2} />
+          </button>
+
+          {/* Slider Window Wrapper */}
+          <div className="w-full px-12 md:px-20">
+            {/* The actual clipping area */}
+            <div className="w-full overflow-hidden">
+              <motion.div 
+                className="flex transition-transform duration-500 ease-out"
+                style={{ 
+                  transform: `translateX(-${currentIndex * (100 / testimonials.length)}%)`,
+                  width: `${(testimonials.length / itemsVisible) * 100}%`
+                }}
+              >
+                {testimonials.map((testimonial) => (
+                    <div 
+                    key={testimonial.id} 
+                    className="flex flex-col items-center text-center px-4 shrink-0"
+                    style={{ width: `${100 / testimonials.length}%` }}
+                  >
+                    {/* Organic Curved Avatar */}
+                    <div 
+                      className="mb-6"
+                      style={{ filter: 'drop-shadow(0 10px 20px rgba(54,92,73,0.15))' }}
+                    >
+                      <img 
+                        src={testimonial.image} 
+                        alt={testimonial.name}
+                        className="w-28 h-28 md:w-36 md:h-36 object-cover bg-white p-1"
+                        style={{ borderRadius: '55% 45% 60% 40% / 45% 55% 40% 60%' }}
+                      />
+                    </div>
+                    
+                    {/* Name */}
+                  <h3 className="font-heading text-xl md:text-2xl text-dark mb-3 font-semibold">
+                    {testimonial.name}
+                  </h3>
+                  
+                  {/* Short Text */}
+                  <p className="font-body text-sm md:text-base text-dark/70 mb-5 max-w-[250px] leading-relaxed min-h-[60px]">
+                    {testimonial.text}
+                  </p>
+                  
+                  {/* Stars */}
+                  <div className="flex gap-1">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 md:w-5 md:h-5 fill-[#D4AF37] text-[#D4AF37]" />
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </motion.div>
+            </div>
+          </div>
+
+          {/* Right Button */}
+          <button 
+            onClick={nextTestimonial}
+            className="absolute right-2 md:right-4 z-20 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-white text-dark shadow-md hover:scale-110 hover:text-accent transition-all duration-300"
+          >
+            <ChevronRight size={24} strokeWidth={2} />
+          </button>
+          
+        </div>
+        
+        {/* Navigation Dots */}
+        <div className="flex gap-2 mt-12 md:mt-16">
+          {[...Array(totalSlides)].map((_, index) => (
+            <button 
+              key={index}
+              onClick={() => setCurrentIndex(index)}
+              className={`transition-all duration-300 rounded-full ${
+                currentIndex === index 
+                  ? 'w-3 h-3 bg-accent' 
+                  : 'w-3 h-3 bg-dark/20 hover:bg-dark/40'
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
           ))}
-        </motion.div>
+        </div>
+
       </div>
     </section>
   );

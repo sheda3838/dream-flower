@@ -1,29 +1,22 @@
 import { motion } from 'framer-motion';
-import { Check } from 'lucide-react';
+import { MapPin, Phone, Mail, Instagram, Facebook, MessageCircle } from 'lucide-react';
 
 const InfoPanel = () => {
-  const trustPoints = [
-    'Personalized floral concepts tailored to your vision',
-    'Luxury event styling with premium attention to detail',
-    'Dedicated consultation before final design',
-    'Trusted experience with 10+ years in event styling',
-  ];
-
   return (
     <motion.div 
       initial={{ opacity: 0, x: -30 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-      className="flex flex-col relative"
+      className="flex flex-col relative h-full justify-center"
     >
       {/* Subtle Glow Shape */}
       <div className="absolute -top-10 -left-10 w-64 h-64 bg-accent/20 rounded-full mix-blend-multiply filter blur-[80px] opacity-70 z-0"></div>
 
-      <div className="relative z-10">
+      <div className="relative z-10 lg:pr-12">
         <div className="flex items-center gap-4 mb-6">
           <div className="h-[1px] w-12 bg-accent"></div>
-          <span className="font-body text-sm tracking-[0.2em] uppercase text-accent font-medium">Book Your Experience</span>
+          <span className="font-body text-sm tracking-[0.2em] uppercase text-accent font-medium">Get in Touch</span>
         </div>
         
         <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-dark mb-6 leading-tight">
@@ -31,26 +24,79 @@ const InfoPanel = () => {
         </h2>
         
         <p className="font-body text-dark/80 text-base md:text-lg leading-relaxed font-light mb-12">
-          Share your vision with us and let The Dream Flower craft an unforgettable floral and event styling experience tailored exclusively to your celebration. Whether it’s a wedding, engagement, birthday, or special event, we bring elegance and creativity to every detail.
+          We’d love to bring your vision to life. Reach out to us for consultations, bookings, or custom floral experiences.
         </p>
         
-        <ul className="space-y-5">
-          {trustPoints.map((point, index) => (
-            <motion.li 
-              key={index}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 + (index * 0.1) }}
-              className="flex items-start gap-4"
-            >
-              <div className="mt-1 min-w-[20px] flex items-center justify-center">
-                <Check className="w-5 h-5 text-primary" strokeWidth={2.5} />
-              </div>
-              <span className="font-body text-dark/90 text-base md:text-lg font-light leading-relaxed">{point}</span>
-            </motion.li>
-          ))}
-        </ul>
+        {/* Contact Details */}
+        <div className="flex flex-col gap-8 mb-12">
+          <motion.a 
+            href="#"
+            whileHover={{ x: 5 }}
+            className="flex items-center gap-5 group"
+          >
+            <div className="w-12 h-12 rounded-full border border-dark/10 flex items-center justify-center bg-white/50 group-hover:bg-white group-hover:border-accent/30 group-hover:shadow-md transition-all duration-300 shrink-0">
+              <MapPin className="w-5 h-5 text-dark/60 group-hover:text-accent transition-colors" strokeWidth={1.5} />
+            </div>
+            <div className="flex flex-col">
+              <span className="font-body text-xs tracking-widest uppercase text-dark/50 mb-1">Location</span>
+              <span className="font-body text-lg text-dark/90 font-light group-hover:text-primary transition-colors">Galle, Sri Lanka</span>
+            </div>
+          </motion.a>
+
+          <motion.a 
+            href="tel:+94771234567"
+            whileHover={{ x: 5 }}
+            className="flex items-center gap-5 group"
+          >
+            <div className="w-12 h-12 rounded-full border border-dark/10 flex items-center justify-center bg-white/50 group-hover:bg-white group-hover:border-accent/30 group-hover:shadow-md transition-all duration-300 shrink-0">
+              <Phone className="w-5 h-5 text-dark/60 group-hover:text-accent transition-colors" strokeWidth={1.5} />
+            </div>
+            <div className="flex flex-col">
+              <span className="font-body text-xs tracking-widest uppercase text-dark/50 mb-1">Phone</span>
+              <span className="font-body text-lg text-dark/90 font-light group-hover:text-primary transition-colors">+94 77 123 4567</span>
+            </div>
+          </motion.a>
+
+          <motion.a 
+            href="mailto:hello@thedreamflower.com"
+            whileHover={{ x: 5 }}
+            className="flex items-center gap-5 group"
+          >
+            <div className="w-12 h-12 rounded-full border border-dark/10 flex items-center justify-center bg-white/50 group-hover:bg-white group-hover:border-accent/30 group-hover:shadow-md transition-all duration-300 shrink-0">
+              <Mail className="w-5 h-5 text-dark/60 group-hover:text-accent transition-colors" strokeWidth={1.5} />
+            </div>
+            <div className="flex flex-col">
+              <span className="font-body text-xs tracking-widest uppercase text-dark/50 mb-1">Email</span>
+              <span className="font-body text-lg text-dark/90 font-light group-hover:text-primary transition-colors">hello@thedreamflower.com</span>
+            </div>
+          </motion.a>
+        </div>
+
+        {/* Social Icons */}
+        <div className="flex gap-4">
+          <motion.a 
+            href="#"
+            whileHover={{ y: -3 }}
+            className="w-10 h-10 rounded-full border border-dark/20 flex items-center justify-center text-dark/60 hover:text-accent hover:border-accent hover:bg-white hover:shadow-md transition-all duration-300"
+          >
+            <Instagram className="w-4 h-4" />
+          </motion.a>
+          <motion.a 
+            href="#"
+            whileHover={{ y: -3 }}
+            className="w-10 h-10 rounded-full border border-dark/20 flex items-center justify-center text-dark/60 hover:text-accent hover:border-accent hover:bg-white hover:shadow-md transition-all duration-300"
+          >
+            <Facebook className="w-4 h-4" />
+          </motion.a>
+          <motion.a 
+            href="#"
+            whileHover={{ y: -3 }}
+            className="w-10 h-10 rounded-full border border-dark/20 flex items-center justify-center text-dark/60 hover:text-accent hover:border-accent hover:bg-white hover:shadow-md transition-all duration-300"
+          >
+            <MessageCircle className="w-4 h-4" />
+          </motion.a>
+        </div>
+
       </div>
     </motion.div>
   );

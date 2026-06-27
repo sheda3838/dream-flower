@@ -24,7 +24,7 @@ const Gallery = () => {
   return (
     <section 
       id="gallery" 
-      className="w-full bg-cream transition-all duration-700 ease-in-out flex flex-col justify-center items-center py-20 md:py-24 overflow-hidden min-h-[100dvh]"
+      className="w-full bg-cream transition-all duration-700 ease-in-out flex flex-col justify-center items-center pt-16 pb-4 md:pt-20 md:pb-6 overflow-hidden"
     >
       <style>
         {`
