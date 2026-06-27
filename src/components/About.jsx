@@ -92,10 +92,20 @@ const About = () => {
               Crafting timeless floral experiences for life’s most beautiful moments.
             </motion.h2>
 
-            <motion.div variants={fadeUp} className="hidden lg:block mt-auto">
+            <motion.div variants={fadeUp} className="hidden lg:block mt-12 mb-8">
               <p className="font-heading italic text-xl md:text-2xl text-dark/60 border-l border-accent pl-6">
                 “Designed with intention.<br/>Crafted with emotion.”
               </p>
+            </motion.div>
+
+            {/* CTAs */}
+            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-start gap-4 mt-6 lg:mt-auto">
+              <a href="#services" className="btn-primary w-full sm:w-auto text-center">
+                Learn More
+              </a>
+              <a href="#gallery" className="btn-secondary w-full sm:w-auto text-center">
+                View Our Story
+              </a>
             </motion.div>
           </div>
 

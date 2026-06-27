@@ -19,13 +19,20 @@ const ServiceCard = ({ service, index }) => {
       </div>
 
       {/* Dark Gradient Overlay for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/10 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-700"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/20 to-transparent opacity-60 group-hover:opacity-95 transition-opacity duration-700"></div>
 
       {/* Content - Positioned Bottom Right */}
       <div className="absolute inset-0 flex flex-col justify-end items-end p-6 lg:p-8">
-        <h3 className="font-heading text-2xl sm:text-3xl lg:text-4xl text-cream text-right transition-all duration-700 drop-shadow-md transform translate-y-2 group-hover:translate-y-0 group-hover:scale-105 origin-bottom-right">
+        <h3 className="font-heading text-2xl sm:text-3xl lg:text-4xl text-cream text-right transition-all duration-700 drop-shadow-md transform translate-y-4 group-hover:translate-y-0 group-hover:scale-105 origin-bottom-right mb-0 group-hover:mb-3">
           {service.title}
         </h3>
+        
+        {/* Hover CTA */}
+        <div className="overflow-hidden transition-all duration-700 max-h-0 opacity-0 transform translate-y-4 group-hover:max-h-[50px] group-hover:opacity-100 group-hover:translate-y-0">
+          <a href="#booking" className="inline-flex items-center justify-center px-6 py-2 rounded-full border border-cream/70 text-cream font-body text-xs tracking-widest uppercase transition-all duration-300 ease-out hover:bg-cream hover:text-dark hover:-translate-y-1 shadow-md">
+            Explore Service
+          </a>
+        </div>
       </div>
     </motion.div>
   );

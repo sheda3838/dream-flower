@@ -45,7 +45,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="w-full bg-[#244033] pt-24 pb-8 border-t border-cream/10 relative overflow-hidden">
+    <footer className="w-full bg-[#244033] pt-16 pb-8 border-t border-cream/10 relative overflow-hidden">
       {/* Decorative Blur */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/20 rounded-full mix-blend-screen filter blur-[100px] opacity-30 pointer-events-none"></div>
 
@@ -57,7 +57,7 @@ const Footer = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-16 mb-20"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12 mb-12"
         >
           <motion.div variants={itemVariants} className="col-span-1 md:col-span-2 lg:col-span-1">
             <FooterBrand />

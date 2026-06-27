@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail, Instagram, Facebook, MessageCircle } from 'lucide-react';
+import { MapPin, Phone, Mail, MessageCircle } from 'lucide-react';
 
 const InfoPanel = () => {
   return (
@@ -79,14 +79,14 @@ const InfoPanel = () => {
             whileHover={{ y: -3 }}
             className="w-10 h-10 rounded-full border border-dark/20 flex items-center justify-center text-dark/60 hover:text-accent hover:border-accent hover:bg-white hover:shadow-md transition-all duration-300"
           >
-            <Instagram className="w-4 h-4" />
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
           </motion.a>
           <motion.a 
             href="#"
             whileHover={{ y: -3 }}
             className="w-10 h-10 rounded-full border border-dark/20 flex items-center justify-center text-dark/60 hover:text-accent hover:border-accent hover:bg-white hover:shadow-md transition-all duration-300"
           >
-            <Facebook className="w-4 h-4" />
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
           </motion.a>
           <motion.a 
             href="#"

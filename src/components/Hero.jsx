@@ -33,8 +33,8 @@ const Hero = () => {
           playsInline
           className="w-full h-full object-cover"
         />
-        {/* Soft dark green overlay for text readability (~40% opacity) */}
-        <div className="absolute inset-0 bg-dark/40"></div>
+        {/* Soft dark green overlay for text readability */}
+        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(12,22,18,.55)' }}></div>
       </div>
 
       {/* Content Container */}
@@ -71,7 +71,7 @@ const Hero = () => {
             initial="hidden"
             animate="visible"
             variants={fadeUpVariant}
-            className="font-body text-body text-lg md:text-xl font-light mb-10 leading-relaxed drop-shadow-sm max-w-2xl"
+            className="font-body text-cream/90 text-lg md:text-xl font-light mb-10 leading-relaxed drop-shadow-sm max-w-2xl"
           >
             Elegant floral decorations for weddings, engagements, birthdays and unforgettable
             celebrations crafted with creativity and passion.
@@ -85,7 +85,7 @@ const Hero = () => {
               animate="visible"
               variants={fadeUpVariant}
               href="#booking"
-              className="px-8 py-4 bg-primary text-cream rounded-none text-sm tracking-[0.2em] uppercase hover:bg-cream hover:text-primary transition-colors duration-300 w-full sm:w-auto text-center"
+              className="btn-primary w-full sm:w-auto"
             >
               Book Consultation
             </motion.a>
@@ -95,7 +95,7 @@ const Hero = () => {
               animate="visible"
               variants={fadeUpVariant}
               href="#gallery"
-              className="px-8 py-4 border border-cream text-cream rounded-none text-sm tracking-[0.2em] uppercase hover:bg-cream/10 backdrop-blur-sm transition-all duration-300 w-full sm:w-auto text-center"
+              className="inline-flex items-center justify-center px-8 py-3.5 rounded-full border border-cream/70 text-cream font-body text-sm tracking-widest uppercase transition-all duration-300 ease-out hover:bg-cream hover:text-dark hover:-translate-y-1 hover:shadow-lg hover:shadow-cream/20 active:scale-95 w-full sm:w-auto"
             >
               Explore Gallery
             </motion.a>

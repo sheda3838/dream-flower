@@ -193,7 +193,7 @@ const Testimonials = () => {
         </div>
         
         {/* Navigation Dots */}
-        <div className="flex gap-2 mt-12 md:mt-16">
+        <div className="flex gap-2 mt-12 md:mt-14 mb-10 md:mb-12">
           {[...Array(totalSlides)].map((_, index) => (
             <button 
               key={index}
@@ -207,6 +207,18 @@ const Testimonials = () => {
             />
           ))}
         </div>
+
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <a href="#booking" className="btn-primary">
+            Book Your Dream Event
+          </a>
+        </motion.div>
 
       </div>
     </section>

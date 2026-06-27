@@ -126,6 +126,22 @@ const Gallery = () => {
         </div>
       </div>
 
+      {/* CTAs */}
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.8, delay: 0.3 }}
+        className="flex flex-col sm:flex-row items-center gap-4 mt-8 relative z-20"
+      >
+        <a href="#" className="btn-secondary w-full sm:w-auto text-center">
+          View More
+        </a>
+        <a href="#booking" className="btn-primary w-full sm:w-auto text-center">
+          Book Your Event
+        </a>
+      </motion.div>
+
     </section>
   );
 };

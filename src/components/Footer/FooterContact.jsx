@@ -25,6 +25,11 @@ const FooterContact = () => {
           <span className="block text-accent mb-1 uppercase tracking-widest text-[10px] font-medium">Business Hours</span>
           <span className="leading-relaxed block opacity-70">Mon - Sat: 9:00 AM - 6:00 PM</span>
         </li>
+        <li className="pt-6">
+          <a href="#booking" className="inline-flex items-center justify-center px-6 py-2.5 rounded-full border border-cream/50 text-cream font-body text-xs tracking-widest uppercase transition-all duration-300 ease-out hover:bg-cream hover:text-dark hover:-translate-y-1 hover:shadow-lg hover:shadow-cream/10 active:scale-95">
+            Contact Us
+          </a>
+        </li>
       </ul>
     </div>
   );

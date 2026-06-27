@@ -205,11 +205,9 @@ const BookingForm = () => {
 
             {/* CTA Button */}
             <motion.button
-              whileHover={{ y: -2, scale: 1.01 }}
-              whileTap={{ scale: 0.98 }}
               disabled={isSubmitting}
               type="submit"
-              className="w-full mt-4 bg-gradient-to-r from-[#365C49] to-[#244033] text-cream font-body text-sm tracking-[0.2em] uppercase font-medium py-4.5 rounded-xl shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center min-h-[56px]"
+              className="btn-primary w-full mt-4 min-h-[56px] disabled:opacity-70 disabled:cursor-not-allowed"
             >
               {isSubmitting ? (
                 <div className="w-5 h-5 border-2 border-cream/30 border-t-cream rounded-full animate-spin"></div>
@@ -236,10 +234,8 @@ const BookingForm = () => {
             </p>
             
             <motion.button
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.98 }}
               onClick={handleReset}
-              className="px-8 py-3 bg-white border border-dark/10 text-dark font-body text-xs tracking-[0.2em] uppercase font-medium rounded-xl hover:border-[#365C49]/30 hover:text-[#365C49] hover:shadow-sm transition-all duration-300"
+              className="btn-secondary"
             >
               Submit Another Request
             </motion.button>
