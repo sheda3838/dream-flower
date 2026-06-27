@@ -4,6 +4,8 @@ import About from './components/About';
 import Services from './components/Services';
 import Gallery from './components/Gallery';
 import Testimonials from './components/Testimonials';
+import BookingSection from './components/BookingSection';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -15,8 +17,9 @@ function App() {
         <Services />
         <Gallery />
         <Testimonials />
-        {/* Further sections like Booking will go here */}
+        <BookingSection />
       </main>
+      <Footer />
     </div>
   );
 }
