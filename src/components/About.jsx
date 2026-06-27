@@ -1,15 +1,6 @@
 import { motion } from 'framer-motion';
-import { Check } from 'lucide-react';
-import aboutImage from '../assets/images/about-image.png';
 
 const About = () => {
-  const features = [
-    'Premium Floral Arrangements',
-    'Wedding & Event Decorations',
-    'Personalized Creative Styling',
-    'Trusted Quality & Customer Satisfaction',
-  ];
-
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -21,81 +12,143 @@ const About = () => {
     },
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+  const fadeUp = {
+    hidden: { opacity: 0, y: 40 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] },
+      transition: { duration: 1, ease: [0.25, 0.46, 0.45, 0.94] },
     },
   };
 
+  const floatVariant = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }
+    },
+    hover: {
+      y: -8,
+      transition: { duration: 0.4, ease: "easeOut" }
+    }
+  };
+
+  // Floating keywords for desktop luxury aesthetic
+  const floatingKeywords = [
+    { word: 'Elegance', top: '15%', left: '8%', delay: 0 },
+    { word: 'Craftsmanship', top: '75%', left: '88%', delay: 1 },
+    { word: 'Emotion', top: '20%', left: '85%', delay: 0.5 },
+    { word: 'Detail', top: '80%', left: '12%', delay: 1.5 },
+  ];
+
   return (
-    <section id="about" className="w-full min-h-screen flex items-center py-20 lg:py-0 bg-cream overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 w-full">
+    <section id="about" className="relative w-full h-[100dvh] bg-cream overflow-hidden flex items-center">
+      {/* Soft Background Accents */}
+      <div className="absolute top-0 right-0 w-[40vw] h-[40vw] bg-accent/15 rounded-full blur-[100px] pointer-events-none translate-x-1/3 -translate-y-1/3"></div>
+      <div className="absolute bottom-0 left-0 w-[50vw] h-[50vw] bg-primary/5 rounded-full blur-[120px] pointer-events-none -translate-x-1/4 translate-y-1/3"></div>
+
+      {/* Floating Keywords Layer */}
+      <div className="absolute inset-0 pointer-events-none hidden lg:block">
+        {floatingKeywords.map((kw, i) => (
+          <motion.span
+            key={kw.word}
+            animate={{
+              y: [0, -20, 0],
+              opacity: [0.3, 0.7, 0.3],
+            }}
+            transition={{
+              duration: 6 + i,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: kw.delay,
+            }}
+            className="absolute font-body text-xs tracking-[0.2em] uppercase text-primary/30 blur-[0.5px]"
+            style={{ top: kw.top, left: kw.left }}
+          >
+            {kw.word}
+          </motion.span>
+        ))}
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-12 lg:px-24 h-full flex flex-col justify-center">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center"
+          viewport={{ once: true, margin: "-50px" }}
+          className="flex flex-col lg:flex-row h-full items-center justify-center lg:justify-between gap-8 lg:gap-16 xl:gap-24"
         >
-          {/* Left Column: Image with Badge */}
-          <motion.div variants={itemVariants} className="relative w-full order-1">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-primary/10 aspect-[4/5] sm:aspect-square lg:aspect-[4/5] w-full">
-              <img
-                src={aboutImage}
-                alt="Elegant Floral Decor"
-                className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-              />
-            </div>
-            
-            {/* Floating Glassmorphism Badge */}
-            <div className="absolute -bottom-8 -right-4 sm:-right-8 bg-cream/80 backdrop-blur-md border border-white/50 p-6 md:p-8 rounded-2xl shadow-xl shadow-primary/5 flex flex-col items-center justify-center text-center">
-              <span className="font-heading text-4xl md:text-5xl font-semibold text-primary mb-1">10+</span>
-              <span className="font-body text-xs md:text-sm tracking-widest uppercase text-dark/70 font-medium max-w-[120px]">
-                Years of Excellence
-              </span>
-            </div>
-          </motion.div>
-
-          {/* Right Column: Content */}
-          <div className="flex flex-col order-2">
-            <motion.div variants={itemVariants} className="mb-4 flex items-center gap-4">
-              <div className="h-[1px] w-12 bg-accent"></div>
-              <span className="font-body text-sm tracking-[0.2em] uppercase text-accent font-medium">About Us</span>
+          {/* Left Column: Typographic Statement */}
+          <div className="flex-1 flex flex-col justify-center w-full lg:max-w-xl">
+            <motion.div variants={fadeUp} className="mb-6 lg:mb-8">
+              <span className="font-body text-xs md:text-sm tracking-[0.3em] uppercase text-primary font-medium">About Us</span>
             </motion.div>
             
-            <motion.h2 variants={itemVariants} className="font-heading text-4xl md:text-5xl lg:text-6xl text-dark mb-6 leading-tight">
-              Crafting Elegant Floral Experiences <br className="hidden md:block" /> For Life's Most Beautiful Moments
+            <motion.h2 
+              variants={fadeUp} 
+              className="font-heading text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-dark leading-[1.1] mb-8 lg:mb-16"
+            >
+              Crafting timeless floral experiences for life’s most beautiful moments.
             </motion.h2>
-            
-            <motion.p variants={itemVariants} className="font-body text-dark/80 text-base md:text-lg leading-relaxed font-light mb-10">
-              The Dream Flower is a premium floral decoration and event styling company based in Galle, Sri Lanka. With over 10 years of experience, we transform weddings, engagements, birthdays and special celebrations into unforgettable experiences through elegant floral artistry, creative event styling and exceptional attention to detail. Every design is thoughtfully crafted to reflect each client's unique vision while creating memories that last a lifetime.
-            </motion.p>
-            
-            {/* Feature List */}
-            <motion.ul variants={itemVariants} className="space-y-4 mb-12">
-              {features.map((feature, index) => (
-                <li key={index} className="flex items-start gap-4">
-                  <div className="mt-1 min-w-[24px] flex items-center justify-center">
-                    <Check className="w-5 h-5 text-primary" strokeWidth={2.5} />
-                  </div>
-                  <span className="font-body text-dark/90 text-lg font-light">{feature}</span>
-                </li>
-              ))}
-            </motion.ul>
 
-            {/* Statistic Cards */}
-            <motion.div variants={itemVariants} className="grid grid-cols-2 gap-6 mt-auto">
-              <div className="bg-white/50 backdrop-blur-sm border border-white/60 p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-                <h3 className="font-heading text-4xl text-primary font-semibold mb-2">10+</h3>
-                <p className="font-body text-sm tracking-wider uppercase text-dark/70">Years Experience</p>
-              </div>
-              <div className="bg-white/50 backdrop-blur-sm border border-white/60 p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-                <h3 className="font-heading text-4xl text-primary font-semibold mb-2">100%</h3>
-                <p className="font-body text-sm tracking-wider uppercase text-dark/70">Positive Reviews</p>
-              </div>
+            <motion.div variants={fadeUp} className="hidden lg:block mt-auto">
+              <p className="font-heading italic text-xl md:text-2xl text-dark/60 border-l border-accent pl-6">
+                “Designed with intention.<br/>Crafted with emotion.”
+              </p>
+            </motion.div>
+          </div>
+
+          {/* Right Column: Support Text & Interactive Stat Cards */}
+          <div className="flex-1 w-full max-w-lg mx-auto lg:mx-0 flex flex-col justify-center">
+            <motion.p 
+              variants={fadeUp}
+              className="font-body text-dark/70 text-base md:text-lg leading-relaxed font-light mb-8 lg:mb-12"
+            >
+              The Dream Flower transforms weddings and celebrations into elegant visual stories through refined floral artistry and thoughtful design.
+            </motion.p>
+
+            {/* Stat Cards - Morphing / Staggered Layout Feel */}
+            <div className="relative h-[240px] sm:h-[280px] lg:h-[320px] w-full">
+              {/* Card 1 */}
+              <motion.div 
+                variants={floatVariant}
+                whileHover="hover"
+                className="absolute top-0 left-0 w-[48%] sm:w-56 bg-white/40 backdrop-blur-xl border border-white/60 p-5 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] group z-20 cursor-default"
+              >
+                <div className="absolute inset-0 rounded-2xl bg-white/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <h3 className="font-heading text-3xl sm:text-4xl text-primary mb-1 relative z-10">10+</h3>
+                <p className="font-body text-[10px] sm:text-xs tracking-widest uppercase text-dark/70 relative z-10">Years Experience</p>
+              </motion.div>
+
+              {/* Card 2 */}
+              <motion.div 
+                variants={floatVariant}
+                whileHover="hover"
+                className="absolute top-16 sm:top-20 right-0 w-[45%] sm:w-52 bg-white/30 backdrop-blur-lg border border-white/50 p-5 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] group z-10 cursor-default"
+              >
+                <div className="absolute inset-0 rounded-2xl bg-white/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <h3 className="font-heading text-3xl sm:text-4xl text-primary mb-1 relative z-10">100+</h3>
+                <p className="font-body text-[10px] sm:text-xs tracking-widest uppercase text-dark/70 relative z-10">Events Styled</p>
+              </motion.div>
+
+              {/* Card 3 */}
+              <motion.div 
+                variants={floatVariant}
+                whileHover="hover"
+                className="absolute top-36 sm:top-48 left-8 sm:left-12 w-[55%] sm:w-64 bg-primary/5 backdrop-blur-xl border border-primary/10 p-5 rounded-2xl shadow-[0_10px_40px_rgba(54,92,73,0.08)] group z-30 cursor-default"
+              >
+                <div className="absolute inset-0 rounded-2xl bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <h3 className="font-heading text-2xl sm:text-3xl text-primary mb-1 relative z-10">Premium</h3>
+                <p className="font-body text-[10px] sm:text-xs tracking-widest uppercase text-dark/70 relative z-10">Wedding Designs</p>
+              </motion.div>
+            </div>
+
+            {/* Mobile Signature Line */}
+            <motion.div variants={fadeUp} className="lg:hidden mt-8 text-center sm:text-left border-l border-accent pl-4">
+              <p className="font-heading italic text-lg text-dark/60">
+                “Designed with intention. Crafted with emotion.”
+              </p>
             </motion.div>
           </div>
         </motion.div>
