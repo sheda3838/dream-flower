@@ -1,6 +1,7 @@
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
+import Services from './components/Services';
 
 function App() {
   return (
@@ -9,7 +10,8 @@ function App() {
       <main>
         <Hero />
         <About />
-        {/* Further sections like Services, Gallery, Booking will go here */}
+        <Services />
+        {/* Further sections like Gallery, Booking will go here */}
       </main>
     </div>
   );
