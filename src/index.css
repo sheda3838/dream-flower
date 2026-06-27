@@ -8,7 +8,7 @@
   }
   
   body {
-    @apply bg-cream text-dark font-body antialiased;
+    @apply bg-cream text-dark font-body antialiased overflow-x-hidden;
   }
   
   h1, h2, h3, h4, h5, h6 {
