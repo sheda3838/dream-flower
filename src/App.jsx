@@ -2,6 +2,8 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Services from './components/Services';
+import Gallery from './components/Gallery';
+import Testimonials from './components/Testimonials';
 
 function App() {
   return (
@@ -11,7 +13,9 @@ function App() {
         <Hero />
         <About />
         <Services />
-        {/* Further sections like Gallery, Booking will go here */}
+        <Gallery />
+        <Testimonials />
+        {/* Further sections like Booking will go here */}
       </main>
     </div>
   );
